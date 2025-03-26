@@ -134,13 +134,19 @@ class SensorApp(QWidget):
 
     def toggle_recording(self):
         if not self.recording:
-            if not os.path.exists("logs"):
-                os.makedirs("logs")
-
+            # 🧭 Set logs folder relative to the .exe or .py location
+            base_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+            logs_dir = os.path.join(base_dir, "logs")
+    
+            if not os.path.exists(logs_dir):
+                os.makedirs(logs_dir)
+    
             base_name = self.filename_input.text().strip()
             if base_name == "":
                 base_name = datetime.datetime.now().strftime("sensor_log_%Y-%m-%d_%H-%M-%S")
-            filename = os.path.join("logs", base_name + ".csv")
+    
+            filename = os.path.join(logs_dir, base_name + ".csv")
+
 
             try:
                 self.csv_file = open(filename, mode='w', newline='')

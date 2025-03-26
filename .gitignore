@@ -1,0 +1,20 @@
+# PyInstaller output folders
+build/
+dist/
+__pycache__/
+*.spec
+
+# Log files
+logs/
+
+# VS Code or Spyder cache files (optional)
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+.idea/
+*.vscode/
+
+# CSV data (optional — if you don’t want to track them)
+logs/*.csv
