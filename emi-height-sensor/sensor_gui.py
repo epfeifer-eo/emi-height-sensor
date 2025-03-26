@@ -134,7 +134,7 @@ class SensorApp(QWidget):
 
     def toggle_recording(self):
         if not self.recording:
-            # 🧭 Set logs folder relative to the .exe or .py location
+            # Set logs folder relative to the .exe or .py location
             base_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
             logs_dir = os.path.join(base_dir, "logs")
     
